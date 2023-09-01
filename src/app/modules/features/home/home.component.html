@@ -21,12 +21,20 @@
                         <app-proyect-card [project]="project"  [mostrarDelete]="false" ></app-proyect-card>
                     </li>
                 </ul>
-                <app-divider></app-divider>
-                <p *ngIf="projects.length > 0"> {{projects.slice(0,3).length}}  of {{projects.length}} projects  </p>
-    
-                <button> See all 
+                <div *ngIf="projects.length > 0">
+                    <app-divider></app-divider>
+                    <p> {{projects.slice(0,3).length}}  of {{projects.length}} projects  </p>
+        
+                    <button [routerLink]="[ '/my-projects']"> My Projects 
+                        <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
+                    </button>
+                </div>
+                   
+                <button *ngIf="projects.length == 0" [routerLink]="[ '/my-projects']"> Create new Project 
                     <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
                 </button>
+                
+
             </div>
         </ng-template>
     </mat-expansion-panel>
@@ -53,13 +61,17 @@
                         
                     </li>
                 </ul>
-                <app-divider></app-divider>
-                <p> {{stories.slice(0,3).length}}  of {{stories.length}} stories  </p>
-    
-                <button> See all 
-                    <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
-                </button>
-            </div>    
+                <div *ngIf="stories.length > 0">
+                    <app-divider></app-divider>
+                    <p> {{stories.slice(0,3).length}}  of {{stories.length}} stories  </p>
+                    
+                    <button [routerLink]="[ '/my-stories']"> My Stories
+                        <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
+                    </button>
+                </div>
+                
+
+            </div>     
         </ng-template>
         
     </mat-expansion-panel>

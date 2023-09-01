@@ -48,6 +48,13 @@ mat-accordion {
                     list-style: none;
                 }
             }
+            div{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
             .story-list{
                 display: flex;
                 flex-direction: column;
