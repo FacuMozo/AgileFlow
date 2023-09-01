@@ -1,1 +1,66 @@
-<p>home works!</p>
+<mat-accordion>
+    <p  *ngIf="projects.length == 0 && !cantProjectsIsZero && !errorGetProjects">
+        Loading projects...
+        <app-load-bar></app-load-bar>
+    </p>
+    <mat-expansion-panel *ngIf="projects.length > 0 || cantProjectsIsZero || errorGetProjects">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                View Projects
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Your projects
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+            
+            <div class="panel-body">  
+                <p *ngIf="projects.length == 0"> There are no projects</p>  
+                <ul>
+                    <li *ngFor="let project of projects | slice:0:3">
+                        <app-proyect-card [project]="project"  [mostrarDelete]="false" ></app-proyect-card>
+                    </li>
+                </ul>
+                <app-divider></app-divider>
+                <p *ngIf="projects.length > 0"> {{projects.slice(0,3).length}}  of {{projects.length}} projects  </p>
+    
+                <button> See all 
+                    <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
+                </button>
+            </div>
+        </ng-template>
+    </mat-expansion-panel>
+    
+    <p  *ngIf="projects.length == 0 && !cantProjectsIsZero && !errorGetProjects">
+        Loading stories...
+        <app-load-bar></app-load-bar>
+    </p>
+    <mat-expansion-panel [expanded]="false" *ngIf="stories.length > 0 || cantStoriesIsZero || errorGetStories" >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                View Stories
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Your Stories
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+            <div class="panel-body">
+                <p *ngIf="stories.length == 0"> There are no stories</p>
+                <ul class="story-list">
+                    <li *ngFor="let story of stories | slice:0:3">
+                        <app-story-card *ngIf="stories != undefined"[story]="story" [type]="'mystories'"  (editOutPut)="updateStory(story)"></app-story-card>
+                        
+                    </li>
+                </ul>
+                <app-divider></app-divider>
+                <p> {{stories.slice(0,3).length}}  of {{stories.length}} stories  </p>
+    
+                <button> See all 
+                    <!-- <i [class]="'fa fa-up-right-from-square'"></i> -->
+                </button>
+            </div>    
+        </ng-template>
+        
+    </mat-expansion-panel>
+</mat-accordion>

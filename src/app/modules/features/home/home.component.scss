@@ -1,0 +1,105 @@
+mat-accordion {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin: 1rem 0;
+    width: 42rem;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 750px) {
+        width: 90dvw;
+    }
+    mat-panel-title{
+        font-size: 1.5rem;
+    }
+    mat-panel-description{
+        font-size: 1.2rem;
+    }
+    @media (prefers-color-scheme: light) {
+        mat-panel-description,mat-panel-title{
+            color: black;
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        mat-panel-description,mat-panel-title{
+            color: white;
+        }
+    }
+
+    mat-expansion-panel {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        width: 100%;
+        background-color: var(--elementBackgroundColor);
+        
+        .panel-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            ul {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                li {
+                    list-style: none;
+                }
+            }
+            .story-list{
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+                margin: 1rem 0;
+            }
+            p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            app-divider{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                font-size: 1.1rem;
+                background-color: transparent;
+            }
+            @media (prefers-color-scheme: light) {
+                button{
+                    border-color: var(--darkColor);
+                    color: var(--darkColor)
+                }
+                p{
+                    color: black;
+                }
+                button:hover{
+                    background-color: var(--darkColorSoft);
+                    color: white;
+                    font-weight: 500;
+                    transition: all 0.2s linear;
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                button{
+                    border-color: white;
+                    color: white;
+                }
+                p{
+                    color:white;
+                }
+                button:hover{
+                    background-color: var(--lightColorStrong);
+                    color: black;
+                    font-weight: 500;
+                    transition: all 0.2s linear;
+                }
+                
+            }
+        }
+    }
+}
+
