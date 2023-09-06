@@ -18,7 +18,7 @@
                 <p *ngIf="projects.length == 0"> There are no projects</p>  
                 <ul>
                     <li *ngFor="let project of projects | slice:0:3">
-                        <app-proyect-card [project]="project"  [mostrarDelete]="false" ></app-proyect-card>
+                        <app-proyect-card [project]="project"  [mostrarDelete]="false" (editOutPut)="updateProject(project)" ></app-proyect-card>
                     </li>
                 </ul>
                 <div *ngIf="projects.length > 0">
