@@ -12,7 +12,7 @@ export class StoryCardComponent implements OnInit{
   @Input() story!: Story;
   @Input() epicId!: string;
   @Input() projectId!: string | null;
-  users!: User[];
+  users: User[]=[];
   @Input() type!:string;
   @Output() editOutPut = new EventEmitter();
   @Output() deleteOutPut = new EventEmitter();

@@ -12,7 +12,7 @@ export class ProyectCardComponent implements OnInit{
 
   @Input() project!: Project;
   @Input() mostrarDelete: boolean = false;
-  users!: User[];
+  users: User[]=[];
 
   @Output() editOutPut = new EventEmitter();
   @Output() deleteOutPut = new EventEmitter();
@@ -37,7 +37,10 @@ export class ProyectCardComponent implements OnInit{
   }
 
   getMembersOfProject(ids: string[]): User[] {
-    return this.users.filter(user => ids.includes(user._id));
+    if (this.users.length > 0){
+      return this.users.filter(user => ids.includes(user._id));
+    }
+    return [];
   }
 
   getUsers() {
